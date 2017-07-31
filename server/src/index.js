@@ -1,25 +1,12 @@
-/**
- * This file is important as server/index requires in this file. Be careful here!
- */
-import app from './app'
-import http from 'http'
-import open from 'opn'
-import db from './db/models'
+import http from "http";
+import app from "./app";
 
-const port = normalizePort(process.env.PORT || '8080');
-app.set('port', port);
-const server = http.createServer(app)
-
-db.sequelize.sync().then(() => {
-  server.listen(port, () => {
-    if (process.env.NODE_ENV === 'production') {
-      open(`http://localhost:${port}`);
-    } else {
-      console.log('Backend server is listening in port ' + port)
-    }
-  })
-})
-
+const port = normalizePort(process.env.PORT || "9000");
+app.set("port", port);
+const server = http.createServer(app);
+server.listen(port, () => {
+  console.log(`Listening on port -> ${port}`);
+});
 /**
  * Normalize a port into a number, string, or false.
  */

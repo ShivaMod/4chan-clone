@@ -1,5 +1,7 @@
-import get from './get'
+import get from "./get";
 
-module.exports = (app) => {
-  get(app)
-}
+const boardsRestControllers = {
+  get
+};
+
+export default boardsRestControllers;

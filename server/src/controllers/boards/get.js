@@ -1,50 +1,51 @@
+import db from "../../db/models";
+import * as boardConstants from "./constants";
 
-const db = require('../../db/models')
-
-module.exports = (app) => {
+const boardsGets = {
   /**
-   * Retrieve all the boards created.
-   * TODO: Retrieve all boards or paginate ?
+   * Retrieves all boards.
    */
-  app.get('/api/boards', (req, res) => {
-    db.Boards.findAll({limit: 25}).then((boards) => {
-      res.json(boards)
-    }).catch((err) => {
-      console.dir(err)
-      res.json({error: 'Database Error.'})
-    })
-  })
-
+  getAll(req, res) {
+    return db.Boards
+      .findAll({ limit: 25 })
+      .then(boards => {
+        if (boards == null) {
+          res.status(404).send({ error: boardConstants.BOARD_NOT_FOUND });
+          return;
+        }
+        res.json(boards);
+      })
+      .catch(err => {
+        console.dir(err);
+        res.json({ error: boardConstants.BOARD_DB_ERROR });
+      });
+  },
   /**
-   * Retrieve the top 25 popular boards based on their rank of popularity.
-   * TODO: Actually retrieve boards based on their rank.
-   */
-  app.get('/api/boards/popular', (req, res) => {
-    db.Boards.findAll({limit: 25}).then((boards) => {
-      res.json(boards)
-    }).catch((err) => {
-      console.dir(err)
-      res.json({error: 'Database Error.'})
-    })
-  })
+     * Retrieves a board by id or slug name.
+     * If integer, retrieves it by number, else it'll attempt to get it by the slug name.
+     */
+  getOne(req, res) {
+    let params = {
+      where: !isNaN(req.params.id)
+        ? { id: req.params.id }
+        : { slug: req.params.id },
+      limit: 25
+    };
 
-  /**
-   * Retrieve a single board with all of it's threads.
-   */
-  app.get('/api/boards/:id', (req, res) => {
-    // before making request...
-    let params = {where: !isNaN(req.params.id) ? {id: req.params.id} : {slug: req.params.id}, limit: 25}
+    return db.Boards
+      .findOne(params)
+      .then(board => {
+        if (board === null) {
+          res.status(404).send({ error: boardConstants.BOARD_NOT_FOUND });
+          return;
+        }
+        res.json(board);
+      })
+      .catch(err => {
+        console.dir(err);
+        res.json({ error: boardConstants.BOARD_DB_ERROR });
+      });
+  }
+};
 
-    db.Boards.findOne(params)
-    .then((board) => {
-      if (board === null) {
-        res.status(404).send({error: 'Board does not exist.'})
-        return
-      }
-      res.json(board)
-    }).catch((err) => {
-      console.dir(err)
-      res.json({error: 'Database Error.'})
-    })
-  })
-}
+export default boardsGets;

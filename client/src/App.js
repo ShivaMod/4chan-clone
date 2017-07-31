@@ -1,34 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import axios from 'axios'
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 class App extends Component {
-  constructor() {
-    super()
-    this.state = {boards: {}}
+  state = {
+    boards: null
+  };
+  componentDidMount() {
+    fetch("/api/boards").then(res => res.json()).then(boards => {
+      this.setState({ boards });
+    });
   }
-  componentDidMount () {
-    axios.get('/api/boards')
-    .then((res)=>{
-      this.setState({boards: res.data})
-    })
-    .catch((err) => {
-      console.dir(err)
-    })
-  }
-
   render() {
     return (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>Welcome to 4chan</h2>
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-          <br />
-          {JSON.stringify(this.state.boards)}
+          {this.state.boards && JSON.stringify(this.state.boards)}
         </p>
       </div>
     );
