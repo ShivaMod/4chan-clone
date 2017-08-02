@@ -1,0 +1,12 @@
+body {
+  background: #ffe url("../img/fade.png") top repeat-x;
+  color: #800;
+  font: 13px/1.231 arial, helvetica, clean, sans-serif;
+}
+
+a:visited {
+  color: blue;
+}
+a:hover {
+  color: red;
+}
