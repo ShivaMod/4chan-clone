@@ -1,0 +1,16 @@
+.AnnouncementBoxWrapper {
+  margin-bottom: .5em;
+  padding-bottom: .5em;
+}
+
+.AnnouncementBoxHeader {
+  background: #800;
+  color: #fff;
+}
+
+.AnnouncementBoxContent {
+  line-height: 1.5em;
+  padding: .5em;
+  padding-top: .25em;
+  padding-bottom: 0;
+}

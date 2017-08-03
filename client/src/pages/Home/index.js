@@ -1,7 +1,11 @@
 // npm packages
 import React, { Component } from "react";
 import { Grid, Row, Col, Image } from "react-bootstrap";
+
+// our stuff
 import homePic from "../../assets/img/home_pic.png";
+import AnnouncementBox from "../../components/AnnouncementBox";
+import { HomeInfo } from "./info";
 
 class Home extends Component {
   state = {
@@ -23,7 +27,10 @@ class Home extends Component {
         </Row>
         <Row id="announcement" className="center">
           <Col xs={12} sm={12} md={12}>
-            <div className="text-center">announcement component here</div>
+            <AnnouncementBox
+              header="What is 4chan?"
+              content={HomeInfo.homeAnnouncement}
+            />
           </Col>
         </Row>
         <Row id="boards">
