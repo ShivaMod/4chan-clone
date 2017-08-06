@@ -1,28 +1,26 @@
-.AnnouncementBoxWrapper {
+.CommonBoxWrapper {
   margin-bottom: .5em;
   padding-bottom: .5em;
 }
 
-.AnnouncementBoxHeader {
-  background: #800;
-  color: #fff !important;
+.CommonBoxHeader {
+  background: #fca;
+  color: #800 !important;
   padding-left: .5em;
   line-height: 2em;
 }
 
-.AnnouncementBoxHeader > h2 {
-  color: #fff !important;
+.CommonBoxHeader > h2 {
+  color: #800 !important;
   margin-bottom: 0 !important;
   display: inline-block;
   font-size: 131% !important;
   padding: .25em .5em 0 .5em !important;
 }
 
-.AnnouncementBoxContent {
+.CommonBoxContent {
   line-height: 1.5em;
   padding: .25em .5em;
-  color: #000;
   line-height: 1.5em;
   font-size: 93%;
 }
-

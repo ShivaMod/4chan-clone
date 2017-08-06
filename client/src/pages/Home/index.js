@@ -1,11 +1,22 @@
 // npm packages
 import React, { Component } from "react";
-import { Grid, Row, Col, Image } from "react-bootstrap";
+import { Grid, Image } from "semantic-ui-react";
 
 // our stuff
 import homePic from "../../assets/img/home_pic.png";
 import AnnouncementBox from "../../components/AnnouncementBox";
+import CommonBox from "../../components/CommonBox";
 import { HomeInfo } from "./info";
+import "../../assets/css/Home.css";
+
+const ListOfBoards = ({ boards }) => {
+  const listItems = boards.map((board, i) =>
+    <li key={i}>
+      {board.name}
+    </li>
+  );
+  return <div>{listItems}</div>;
+};
 
 class Home extends Component {
   state = {
@@ -20,28 +31,26 @@ class Home extends Component {
     const { boards } = this.state;
     return (
       <Grid id="homePage">
-        <Row id="homeTop">
-          <Col xs={12} sm={12} md={12}>
-            <Image src={homePic} responsive className="center-block" />
-          </Col>
-        </Row>
-        <Row id="announcement" className="center">
-          <Col xs={12} sm={12} md={12}>
+        <Grid.Row id="homeTop" columns={1}>
+          <Grid.Column>
+            <Image src={homePic} centered />
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row id="announcement" columns={1}>
+          <Grid.Column>
             <AnnouncementBox
               header="What is 4chan?"
               content={HomeInfo.homeAnnouncement}
             />
-          </Col>
-        </Row>
-        <Row id="boards">
-          <Col xs={12} sm={12} md={12}>
-            <div className="text-center">
-              <pre>
-                {JSON.stringify(boards)}
-              </pre>
-            </div>
-          </Col>
-        </Row>
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row id="boards">
+          <Grid.Column>
+            <CommonBox header="Boards">
+              {boards && <ListOfBoards boards={boards} />}
+            </CommonBox>
+          </Grid.Column>
+        </Grid.Row>
       </Grid>
     );
   }

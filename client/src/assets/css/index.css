@@ -10,3 +10,7 @@ a:visited {
 a:hover {
   color: red;
 }
+
+.center {
+  margin: 0 auto;
+}
