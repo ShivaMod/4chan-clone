@@ -20,7 +20,7 @@ class AnnouncementBox extends Component {
   };
 
   render() {
-    const { cookieName, header, content } = this.props;
+    const { header, content } = this.props;
     return (
       <div className="AnnouncementBoxWrapper">
         <Card centered style={{ width: "50%" }}>

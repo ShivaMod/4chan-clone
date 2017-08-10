@@ -17,7 +17,7 @@ class CommonBox extends Component {
   };
 
   render() {
-    const { cookieName, header, children } = this.props;
+    const { header, children } = this.props;
     return (
       <div className="CommonBoxWrapper">
         <Card centered style={{ width: "50%" }}>
