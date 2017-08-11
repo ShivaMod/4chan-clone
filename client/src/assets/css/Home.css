@@ -1,3 +1,9 @@
-#homeTop, #announcement, #boards {
+#homeTop,
+#announcement,
+#boards {
   padding: 0;
+}
+
+#stats .column {
+  margin: 3px 0;
 }

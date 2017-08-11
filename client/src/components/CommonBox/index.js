@@ -20,7 +20,7 @@ class CommonBox extends Component {
     const { header, children } = this.props;
     return (
       <div className="CommonBoxWrapper">
-        <Card centered style={{ width: "50%" }}>
+        <Card centered>
           <div className="CommonBoxHeader">
             <Header as="h2">
               {header}

@@ -23,7 +23,7 @@ class AnnouncementBox extends Component {
     const { header, content } = this.props;
     return (
       <div className="AnnouncementBoxWrapper">
-        <Card centered style={{ width: "50%" }}>
+        <Card centered>
           <div className="AnnouncementBoxHeader">
             <Header as="h2">
               {header}
