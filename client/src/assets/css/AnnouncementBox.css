@@ -3,6 +3,10 @@
   padding-bottom: .5em;
 }
 
+.AnnouncementBoxWrapper > .card {
+  width: 50%;
+}
+
 .AnnouncementBoxHeader {
   background: #800;
   color: #fff !important;
@@ -26,3 +30,8 @@
   font-size: 93%;
 }
 
+@media (max-width: 600px) {
+  .CommonBoxWrapper > .card {
+    width: 100%;
+  }
+}

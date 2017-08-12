@@ -7,3 +7,13 @@
 #stats .column {
   margin: 3px 0;
 }
+
+#boards a {
+  color: #800;
+  text-decoration: none;
+}
+
+#boards a:hover {
+  color: #e00;
+  text-decoration: underline;
+}
