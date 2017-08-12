@@ -21,15 +21,21 @@ const boardsGets = {
       });
   },
   /**
-     * Retrieves a board by id or slug name.
-     * If integer, retrieves it by number, else it'll attempt to get it by the slug name.
+     * Retrieves a board by id or slug name. Limit is 5
      */
   getOne(req, res) {
     let params = {
       where: !isNaN(req.params.id)
         ? { id: req.params.id }
         : { slug: req.params.id },
-      limit: 25
+      include: [
+        {
+          model: db.Threads,
+          as: "threads",
+          limit: 5,
+          order: [["createdAt", "asc"]]
+        }
+      ]
     };
 
     return db.Boards
