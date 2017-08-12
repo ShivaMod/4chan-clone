@@ -2,7 +2,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { Grid, Image, Header } from "semantic-ui-react";
+import { Grid, Image } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 // our stuff
 import homePic from "../../assets/img/home_pic.png";
@@ -17,7 +18,9 @@ const ListOfBoards = ({ boards }) => {
     <div>
       {boards.map((board, i) =>
         <li key={i}>
-          {board.name}
+          <Link to={`/${board.slug}/`}>
+            {board.name}
+          </Link>
         </li>
       )}
     </div>
