@@ -7,7 +7,7 @@ const boardsGets = {
    */
   getAll(req, res) {
     return db.Boards
-      .findAll({ limit: 25 })
+      .findAll()
       .then(boards => {
         if (boards == null) {
           res.status(404).send({ error: boardConstants.BOARD_NOT_FOUND });
