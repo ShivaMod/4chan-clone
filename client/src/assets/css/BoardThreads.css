@@ -1,0 +1,16 @@
+.thread div {
+  color: #800 !important;
+}
+
+.thread .subject a {
+  color: #cc1105 !important;
+  font-weight: bold;
+}
+.thread .subject a:hover {
+  color: inherit !important;
+}
+
+.thread .author {
+  color: #117743 !important;
+  font-weight: bold;
+}

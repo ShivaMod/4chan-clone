@@ -10,7 +10,7 @@ import homePic from "../../assets/img/home_pic.png";
 import AnnouncementBox from "../../components/AnnouncementBox";
 import CommonBox from "../../components/CommonBox";
 import { HomeInfo } from "./info";
-import { fetchBoards } from "../../actions/boardsActions";
+import { getBoards } from "../../actions/boardsActions";
 import "../../assets/css/Home.css";
 
 const ListOfBoards = ({ boards }) => {
@@ -30,7 +30,7 @@ const ListOfBoards = ({ boards }) => {
 class Home extends Component {
   constructor(props) {
     super(props);
-    props.fetchBoards();
+    props.getBoards();
   }
   render() {
     const { boards } = this.props;
@@ -95,7 +95,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      fetchBoards
+      getBoards
     },
     dispatch
   );
