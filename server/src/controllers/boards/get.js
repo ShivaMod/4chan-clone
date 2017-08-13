@@ -4,7 +4,7 @@ import * as boardConstants from "./constants";
 const boardsGets = {
   /**
    * Retrieves all boards.
-   */
+  */
   getAll(req, res) {
     return db.Boards
       .findAll()
@@ -21,8 +21,8 @@ const boardsGets = {
       });
   },
   /**
-     * Retrieves a board by id or slug name. Limit is 5
-     */
+   * Retrieves a board by id or slug name. Limit is 5
+  */
   getOne(req, res) {
     let params = {
       where: !isNaN(req.params.id)
