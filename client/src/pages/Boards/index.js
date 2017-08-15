@@ -2,9 +2,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import BoardThreads from "../../components/BoardThreads";
 
 // our stuff
+import BoardThreads from "../../components/BoardThreads";
 import { getBoard } from "../../actions/boardsActions";
 
 class Boards extends Component {

@@ -8,6 +8,9 @@ import "../../assets/css/BoardThreads.css";
 
 // constructs the view for threads in a board, NOT the individual thread.
 const BoardThreads = ({ threads, boardSlug }) => {
+  if (!threads) {
+    return <p>No threads on this board!</p>;
+  }
   const allThreads = threads.map((thread, i) => {
     return (
       <Item className="thread" key={thread.id}>

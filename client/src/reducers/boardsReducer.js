@@ -30,7 +30,11 @@ export const boards = (state = defaultState, action) => {
       return { ...tempState, pending: true };
     }
     case ActionTypes.GET_BOARD_FULFILLED: {
-      return { ...state, board: action.payload.data, pending: false };
+      const boardData = _.clone(action.payload.data);
+      boardData.threads = _.isEmpty(boardData.threads)
+        ? null
+        : boardData.threads;
+      return { ...state, board: boardData, pending: false };
     }
     case ActionTypes.GET_BOARD_REJECTED: {
       return {
