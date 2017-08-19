@@ -15,13 +15,17 @@ const threadsGets = {
       : { slug: req.query.board };
     let params = {
       where: { id: req.params.id },
-      // FIXME: Look into doing this right...
+      // FIXME: Look into doing this right... ?
       include: [
         {
           model: db.Boards,
           as: "boards",
           where: boardWhereField,
           attributes: []
+        },
+        {
+          model: db.Comments,
+          as: "comments"
         }
       ]
     };

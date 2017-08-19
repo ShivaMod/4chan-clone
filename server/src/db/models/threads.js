@@ -13,6 +13,11 @@ module.exports = function(sequelize, DataTypes) {
       constraints: true,
       as: "boards"
     });
+    Threads.hasMany(models.Comments, {
+      foreignKey: "threadId",
+      constraints: true,
+      as: "comments"
+    });
   };
   return Threads;
 };

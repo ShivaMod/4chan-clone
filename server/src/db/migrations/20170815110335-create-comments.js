@@ -1,36 +1,31 @@
 "use strict";
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable("Threads", {
+    return queryInterface.createTable("Comments", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      boardId: {
+      threadId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "Boards",
+          model: "Threads",
           key: "id"
         }
       },
-      subject: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
       author: {
         type: Sequelize.STRING,
-        defaultValue: "Anonymous"
+        allowNull: false
       },
       comment: {
         type: Sequelize.TEXT,
         allowNull: false
       },
       file: {
-        type: Sequelize.STRING,
-        allowNull: false
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -43,6 +38,6 @@ module.exports = {
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable("Threads");
+    return queryInterface.dropTable("Comments");
   }
 };
