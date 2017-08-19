@@ -5,6 +5,7 @@ import { bindActionCreators } from "redux";
 
 // our stuff
 import { getThread } from "../../actions/threadsActions";
+import ThreadView from "../../components/ThreadView";
 
 class Thread extends Component {
   constructor(props) {
@@ -22,12 +23,7 @@ class Thread extends Component {
         </p>
       );
     }
-    return (
-      this.props.thread &&
-      <div>
-        Welcome to -> {this.props.thread.subject}
-      </div>
-    );
+    return this.props.thread && <ThreadView thread={this.props.thread} />;
   }
 }
 

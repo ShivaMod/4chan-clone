@@ -5,7 +5,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import App from "./App";
 import Home from "./pages/Home";
 import Boards from "./pages/Boards";
-import Thread from "./pages/Thread"
+import Thread from "./pages/Thread";
 
 export default () =>
   <BrowserRouter>
