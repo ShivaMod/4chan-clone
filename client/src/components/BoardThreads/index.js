@@ -4,6 +4,7 @@ import { Item } from "semantic-ui-react";
 import moment from "moment";
 import { Link } from "react-router-dom";
 
+import NewThreadForm from "../NewThreadForm";
 import "../../assets/css/BoardThreads.css";
 
 // constructs the view for threads in a board, NOT the individual thread.
@@ -33,9 +34,12 @@ const BoardThreads = ({ threads, boardSlug }) => {
     );
   });
   return (
-    <Item.Group divided>
-      {allThreads}
-    </Item.Group>
+    <div>
+      <NewThreadForm boardSlug={boardSlug} />
+      <Item.Group divided>
+        {allThreads}
+      </Item.Group>
+    </div>
   );
 };
 

@@ -7,3 +7,10 @@ export function getThread(threadId, boardId) {
     payload: axios.get(`/api/threads/${threadId}?board=${boardId}`)
   };
 }
+
+export function createThread(boardId, body) {
+  return {
+    type: ActionTypes.CREATE_THREAD,
+    payload: axios.post(`/api/threads?board=${boardId}`, { ...body })
+  };
+}

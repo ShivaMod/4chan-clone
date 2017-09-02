@@ -12,7 +12,7 @@ class Thread extends Component {
     super(props);
     this.threadid = props.match.params.threadid;
     this.boardslug = props.match.params.boardslug;
-    this.props.getThread(this.threadid, this.boardslug);
+    props.getThread(this.threadid, this.boardslug);
   }
   render() {
     if (this.props.threadError) {

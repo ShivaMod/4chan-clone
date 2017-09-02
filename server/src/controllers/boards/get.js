@@ -32,7 +32,6 @@ const boardsGets = {
         {
           model: db.Threads,
           as: "threads",
-          limit: 5,
           order: [["createdAt", "asc"]]
         }
       ]
