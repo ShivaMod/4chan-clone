@@ -24,7 +24,7 @@ const threadsCreate = {
         db.Threads
           .create({
             boardId: board.id,
-            subject: req.body.subject,
+            subject: req.body.subject ? req.body.subject : "",
             author: req.body.name ? req.body.name : "Anonymous",
             comment: req.body.comment,
             file: req.body.file

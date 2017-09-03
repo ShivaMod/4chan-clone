@@ -19,6 +19,7 @@ class Boards extends Component {
       <BoardThreads
         threads={this.props.board.threads}
         boardSlug={this.boardslug}
+        boardName={this.props.board.name}
       />
     );
   }

@@ -14,3 +14,25 @@
   color: #117743 !important;
   font-weight: bold;
 }
+
+.threadextra p {
+  color: #707070 !important;
+}
+
+.boardBanner {
+  text-align: center;
+  margin: 5px auto;
+}
+
+.boardBanner img {
+  border: 1px solid #34345c;
+}
+.boardTitle {
+  font-family: Tahoma, sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: -2px;
+  margin-top: 0px;
+  text-align: center;
+  color: #af0a0f;
+}
